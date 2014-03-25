@@ -7,7 +7,7 @@
 %define haproxy_datadir %{_datadir}/haproxy
 
 %define version 1.5
-%define dev_rel dev22
+%define dev_rel dev18
 %define release 2
 
 Name: haproxy
