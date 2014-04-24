@@ -22,7 +22,7 @@ Source0: http://haproxy.1wt.eu/download/1.5/src/devel/haproxy-%{version}-%{dev_r
 Source1: haproxy.init
 Source2: haproxy.cfg
 Source3: haproxy.logrotate
-Source4: etc/rsyslog.d/haproxy.conf
+Source4: haproxy.conf
 
 Requires(pre): %{_sbindir}/groupadd
 Requires(pre): %{_sbindir}/useradd
@@ -115,6 +115,7 @@ fi
 %dir %{haproxy_confdir}
 %config(noreplace) %{haproxy_confdir}/%{name}.cfg
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
+%config(noreplace) %{_sysconfdir}/rsyslog.d/%{name}.conf
 %{_initrddir}/%{name}
 %{_sbindir}/%{name}
 %{_bindir}/halog
