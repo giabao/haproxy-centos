@@ -7,8 +7,8 @@
 %define haproxy_datadir %{_datadir}/haproxy
 
 %define version 1.5
-%define dev_rel dev18
-%define release 2
+%define dev_rel dev23
+%define release 1
 
 Name: haproxy
 Summary: HA-Proxy is a TCP/HTTP reverse proxy for high availability environments
@@ -22,6 +22,7 @@ Source0: http://haproxy.1wt.eu/download/1.5/src/devel/haproxy-%{version}-%{dev_r
 Source1: haproxy.init
 Source2: haproxy.cfg
 Source3: haproxy.logrotate
+Source4: etc/rsyslog.d/haproxy.conf
 
 Requires(pre): %{_sbindir}/groupadd
 Requires(pre): %{_sbindir}/useradd
@@ -67,6 +68,7 @@ make install-man DESTDIR=%{buildroot} PREFIX=%{_prefix}
 %{__install} -p -D -m 0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 %{__install} -p -D -m 0644 %{SOURCE2} %{buildroot}%{haproxy_confdir}/%{name}.cfg
 %{__install} -p -D -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+%{__install} -p -D -m 0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/rsyslog.d/%{name}.conf
 %{__install} -d -m 0755 %{buildroot}%{haproxy_home}
 %{__install} -d -m 0755 %{buildroot}%{haproxy_datadir}
 %{__install} -d -m 0755 %{buildroot}%{_bindir}
@@ -121,6 +123,9 @@ fi
 %exclude %{_sbindir}/haproxy-systemd-wrapper
 
 %changelog
+* Tue Apr 25 2014 Gia Bao <giabao@sandinh.net> - 1.5dev23
+- Update to haproxy 1.5-dev23 & add rsyslog conf file
+
 * Tue Feb 04 2014 Chris Schuld <chris@chrisschuld.com> - 1.5dev22
 - Update to haproxy 1.5-dev22
 
