@@ -7,7 +7,7 @@
 %define haproxy_datadir %{_datadir}/haproxy
 
 %define version 1.5
-%define dev_rel dev23
+%define dev_rel dev24
 %define release 1
 
 Name: haproxy
@@ -124,6 +124,9 @@ fi
 %exclude %{_sbindir}/haproxy-systemd-wrapper
 
 %changelog
+* Tue Apr 28 2014 Gia Bao <giabao@sandinh.net> - 1.5dev24
+- Update to haproxy 1.5-dev24
+
 * Tue Apr 25 2014 Gia Bao <giabao@sandinh.net> - 1.5dev23
 - Update to haproxy 1.5-dev23 & add rsyslog conf file
 

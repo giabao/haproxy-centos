@@ -1,4 +1,4 @@
-# A Recipe for a haproxy 1.5 development version (v23) RPM on CentOS
+# A Recipe for a haproxy 1.5 development version (v24) RPM on CentOS
 
 Perform the following on a build box as a regular user.
 
@@ -16,13 +16,13 @@ Install rpmdevtools from the [EPEL][epel] repository:
 
 ## Download haproxy
 
-    wget http://haproxy.1wt.eu/download/1.5/src/devel/haproxy-1.5-dev23.tar.gz
-    mv http://haproxy.1wt.eu/download/1.5/src/devel/haproxy-1.5-dev23.tar.gz ~/rpmbuild/SOURCES/
+    wget http://haproxy.1wt.eu/download/1.5/src/devel/haproxy-1.5-dev24.tar.gz
+    mv http://haproxy.1wt.eu/download/1.5/src/devel/haproxy-1.5-dev24.tar.gz ~/rpmbuild/SOURCES/
 
 ## Get Necessary System-specific Configs
 
     git clone git://github.com/giabao/haproxy-centos.git
-    cp -R haproxy-centos/conf/* ~/rpmbuild/SOURCES/
+    cp haproxy-centos/conf/* ~/rpmbuild/SOURCES/
     cp haproxy-centos/spec/* ~/rpmbuild/SPECS/
 
 ## Build the RPM
